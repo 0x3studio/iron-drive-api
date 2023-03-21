@@ -1,11 +1,14 @@
 const express = require("express");
 const createError = require("http-errors");
+const cors = require("cors");
 
 const { Wallet } = require("ethers");
 const { WarpFactory } = require("warp-contracts");
 const { buildEvmSignature } = require("warp-contracts-plugin-signature/server");
 
 const app = express();
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send({ status: "ok" });
